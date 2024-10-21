@@ -1,4 +1,5 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+
 def home(request):
-    return HttpResponse("Hello its server responding")
+    return render(request, 'website/index.html')
