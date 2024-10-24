@@ -1,54 +1,22 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anime Streaming</title>
-    <link rel="stylesheet" href={% static 'schulen.css'%}>
-</head>
-<body>
-    <header>
-        <h1>Anime Stream</h1>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Genres</a></li>
-                <li><a href="#">Latest Releases</a></li>
-                <li><a href="#">Popular</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section class="featured">
-            <h2>Featured Anime</h2>
-            <div class="anime-grid">
-                <div class="anime-card">
-                    <img src="https://m.media-amazon.com/images/I/61LE3zX86qL.jpg" alt="Anime Title 1">
-                    <h3>Demon Slayer</h3>
-                    <p>The best anime to give a try must watch available at low as 0.8$ </p>
-                </div>
-                <div class="anime-card">
-                    <img src="https://m.media-amazon.com/images/I/813WcjGWO2L.jpg" alt="Anime Title 2">
-                    <h3>Attack on Titan</h3>
-                    <p>A superb masterpiece to give a try. if you have'nt watched it yet then you are missiing a lot.</p>
-                </div>
-                <div class="anime-card">
-                    <img src="https://m.media-amazon.com/images/I/51N6dH6-3nL._AC_UF1000,1000_QL80_.jpg" alt="Anime Title 3">
-                    <h3>One piece</h3>
-                    <p>Short description of Anime Title 3.</p>
-                </div>
-                <div class="anime-card">
-                    <img src="https://cdn.europosters.eu/image/750/posters/death-note-from-the-shadows-i58005.jpg" alt="Anime Title 4">
-                    <h3>Death note</h3>
-                    <p>Short description of Anime Title 4.</p>
-                </div>
-            </div>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 Anime Stream. All rights reserved.</p>
-    </footer>
-</body>
-</html>
+{% extends "layout.html" %}
+{% block title %}Schulen{% endblock %}
+
+
+  {% block content %}
+
+
+    {% for anime in animes %}
+    <div class="grid grid-cols-3 gap-4 m-4">
+        <img src="{{anime.image.url}}">
+        <h3>{{anime.name}}</h3>
+
+        <a href="#" cla>
+            <button class="bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600">
+                {{anime.types}} - {{anime.id}}
+            </button>
+        </a>
+    </div>
+    
+    {% endfor %}
+    
+    {% endblock %}
