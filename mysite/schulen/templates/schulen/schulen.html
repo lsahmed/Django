@@ -4,19 +4,31 @@
 
   {% block content %}
 
-
-    {% for anime in animes %}
-    <div class="grid grid-cols-3 gap-4 m-4">
-        <img src="{{anime.image.url}}">
-        <h3>{{anime.name}}</h3>
-
-        <a href="#" cla>
-            <button class="bg-blue-500 text-white font-semibold py-2 px-4 rounded hover:bg-blue-600">
-                {{anime.types}} - {{anime.id}}
-            </button>
-        </a>
+{% for anime in animes %}
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="flex flex-wrap -m-4">
+                <div class="p-4 md:w-1/3">
+                    <div class="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+            <img class="lg:h-48 md:h-36 w-full object-cover object-center" src={{anime.image.url}} alt="blog">
+            <div class="p-6">
+                <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">{{anime.name}}</h2>
+                <h3>{{anime.name}}</h3>
+                <h1 class="title-font text-lg font-medium text-gray-900 mb-3"></h1>
+                <p class="leading-relaxed mb-3">{{anime.description}}</p>
+                <div class="flex items-center flex-wrap ">
+                <a href="{% url 'anime_d' anime.id %}">
+                    <button type="button" class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                        {{anime.types}} - {{anime.id}} </button>
+                    </div>
+                </a>
+            </div>
+            </div>
+        </div>
+        </div>
     </div>
-    
-    {% endfor %}
+    </div>
+    </section>
+{% endfor %}
     
     {% endblock %}
